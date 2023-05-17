@@ -1,3 +1,4 @@
+import Modal from "../UI/Modal";
 import caless from "./Cart.module.css";
 
 const Cart = (props) => {
@@ -7,17 +8,19 @@ const Cart = (props) => {
     }
   );
   return (
-    <div>
+    <Modal onClose={props.onClose}>
       <ul>{cartItems}</ul>
-      <div>
+      <div className={caless.total}>
         <span>Total Amount</span>
         <span>35.62</span>
       </div>
-      <div className={caless.action}>
-        <button className={caless["button--alt"]}>Close</button>
+      <div className={caless.actions}>
+        <button className={caless["button--alt"]} onClick={props.onClose}>
+          Close
+        </button>
         <button className={caless.button}>Order</button>
       </div>
-    </div>
+    </Modal>
   );
 };
 
